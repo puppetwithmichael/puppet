@@ -3,7 +3,7 @@ node 'puppetmaster.local' {
   include ::users::michael
 }
 
-node 'myothercoolnode.local' {
+node 'puppetagent.local' {
   include ::users::michael
 }
 
