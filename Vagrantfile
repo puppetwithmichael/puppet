@@ -6,12 +6,12 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "shell", inline: "echo Hello"
 
-  config.vm.define "web" do |web|
-    web.vm.hostname = "apache"
+  config.vm.define "puppetmaster" do |puppetmaster|
+    web.vm.hostname = "puppetmaster.local"
   end
 
-  config.vm.define "db" do |db|
-    db.vm.hostname = "mysql"
+  config.vm.define "pupeptagent" do |puppetagent|
+    db.vm.hostname = "puppetagent.local"
   end
   
   config.vm.provision "puppet" do |puppet|
