@@ -15,6 +15,6 @@ class users::michael (
     password_min_age => '0',
     shell            => '/bin/bash',
     uid              => '502',
-    name             => $fullname
+    comment          => $fullname
   }
 }

@@ -1,0 +1,22 @@
+---
+:logger: console
+:backends:
+<%- @hiera_backends.keys.sort.each do |backend| -%>
+  - <%= backend %>
+<%- end -%>
+
+:hierarchy:
+<%- @hierarchy.each do |file| -%>
+  - "<%= file %>"
+<%- end -%>
+
+<%- @hiera_backends.keys.sort.each do |backend| -%>
+:<%= backend %>:
+  <%- @hiera_backends[backend].keys.sort.each do |key| -%>
+  :<%= key %>: "<%= @hiera_backends[backend][key] %>"
+  <%- end -%>
+
+<%- end -%>
+<% if @hiera_merge_behavior -%>
+:merge_behavior: <%= @hiera_merge_behavior -%>
+<% end -%>
