@@ -1,0 +1,9 @@
+# custom facts for <%= @clientcert %>
+# FQDN <%= @fqdn %>
+# Environment <%= @environment %>
+---
+<%- if @custom_facts -%>
+<%- @custom_facts.keys.sort.each do |key| -%>
+<%= key %>: "<%= @custom_facts[key] %>"
+<%- end -%>
+<%- end -%>
